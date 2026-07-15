@@ -1,0 +1,5 @@
+{
+  "model": "train/stride126/model",
+  "target": "train/pseudo_final/datasets/seed42/pseudo_final_masked.csv",
+  "target_name": "pseudo_final_seed42"
+}
