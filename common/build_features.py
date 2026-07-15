@@ -201,7 +201,8 @@ def main() -> None:
     args = parser.parse_args()
     config = json.loads(args.config.read_text(encoding="utf-8"))
     experiment_dir = ROOT / config["experiment_dir"]
-    SPLIT_DIR = experiment_dir / "data" / "splits" / "mf2_garch_regime_corr"
+    data_name = config.get("data_name", "mf2_garch_regime_corr")
+    SPLIT_DIR = experiment_dir / "data" / "splits" / data_name
     OUT_DIR = experiment_dir / "data" / "features"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     all_rows: list[dict[str, object]] = []

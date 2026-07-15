@@ -64,6 +64,27 @@ def split_indices(n: int) -> dict[str, list[int]]:
     }
 
 
+def real_windows_by_period(n_rows: int) -> tuple[list[tuple[int, int]], dict[str, list[int]], dict[str, tuple[int, int]]]:
+    """Split raw time periods first, then create windows contained in each period."""
+    train_end = int(n_rows * TRAIN_RATIO)
+    val_end = int(n_rows * (TRAIN_RATIO + VAL_RATIO))
+    periods = {
+        "train": (0, train_end),
+        "val": (train_end, val_end),
+        "test": (val_end, n_rows),
+    }
+    windows: list[tuple[int, int]] = []
+    split: dict[str, list[int]] = {}
+    for name in ["train", "val", "test"]:
+        period_start, period_end = periods[name]
+        ids: list[int] = []
+        for start in range(period_start, period_end - WINDOW_LENGTH + 1, STRIDE):
+            ids.append(len(windows))
+            windows.append((start, start + WINDOW_LENGTH - 1))
+        split[name] = ids
+    return windows, split, periods
+
+
 def read_generated_wide(path: Path) -> tuple[list[str], list[list[str]]]:
     with path.open(newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -71,12 +92,35 @@ def read_generated_wide(path: Path) -> tuple[list[str], list[list[str]]]:
         rows = [row for row in reader]
     if len(rows) != WINDOW_LENGTH:
         raise ValueError(f"generated rows must be {WINDOW_LENGTH}, got {len(rows)}")
-    if len(header) % 2 != 0:
-        raise ValueError(f"generated columns must be paired, got {len(header)}")
     for row_no, row in enumerate(rows, start=2):
         if len(row) != len(header):
             raise ValueError(f"row {row_no} has {len(row)} columns, expected {len(header)}")
-    return header, rows
+
+    column_index = {name: idx for idx, name in enumerate(header)}
+    pairs: list[tuple[str, str]] = []
+    for name in header:
+        if name.endswith("_sp500"):
+            counterpart = name[: -len("_sp500")] + "_DGS10"
+            if counterpart in column_index:
+                pairs.append((name, counterpart))
+        elif name.startswith("sp500_path_"):
+            counterpart = "dgs10_path_" + name[len("sp500_path_") :]
+            if counterpart in column_index:
+                pairs.append((name, counterpart))
+    if not pairs:
+        raise ValueError(f"no sp500/DGS10 generated column pairs found in {path}")
+
+    normalized_header: list[str] = []
+    normalized_rows = [[] for _ in rows]
+    for sample_no, (sp_col, dg_col) in enumerate(pairs, start=1):
+        normalized_header.extend(
+            [f"sample{sample_no:04d}_sp500", f"sample{sample_no:04d}_DGS10"]
+        )
+        sp_idx = column_index[sp_col]
+        dg_idx = column_index[dg_col]
+        for row_no, row in enumerate(rows):
+            normalized_rows[row_no].extend([row[sp_idx], row[dg_idx]])
+    return normalized_header, normalized_rows
 
 
 def write_labels(path: Path, rows: list[dict[str, object]]) -> None:
@@ -172,17 +216,25 @@ def main() -> None:
     config = json.loads(args.config.read_text(encoding="utf-8"))
     TRAIN_CSV = (ROOT / config["train_csv"]).resolve()
     GENERATED_WIDE_CSV = (ROOT / config["generated_wide_csv"]).resolve()
-    OUT_DIR = ROOT / config["experiment_dir"] / "data" / "splits" / "mf2_garch_regime_corr"
+    data_name = config.get("data_name", "mf2_garch_regime_corr")
+    OUT_DIR = ROOT / config["experiment_dir"] / "data" / "splits" / data_name
     WINDOW_LENGTH = int(config["window_length"])
     STRIDE = int(config["stride"])
     TRAIN_RATIO = float(config["train_ratio"])
     VAL_RATIO = float(config["val_ratio"])
-    _, train_values = read_train_series(TRAIN_CSV)
-    windows = real_windows(len(train_values))
+    dates, train_values = read_train_series(TRAIN_CSV)
+    split_strategy = config.get("real_split_strategy", "window_then_split")
+    if split_strategy == "period_then_window":
+        windows, real_split, real_periods = real_windows_by_period(len(train_values))
+    elif split_strategy == "window_then_split":
+        windows = real_windows(len(train_values))
+        real_split = split_indices(len(windows))
+        real_periods = None
+    else:
+        raise ValueError(f"unknown real_split_strategy: {split_strategy}")
     gen_header, generated_rows = read_generated_wide(GENERATED_WIDE_CSV)
     n_generated = len(gen_header) // 2
 
-    real_split = split_indices(len(windows))
     gen_split = split_indices(n_generated)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -208,6 +260,7 @@ def main() -> None:
         "output_dir": str(OUT_DIR),
         "window_length": WINDOW_LENGTH,
         "stride": STRIDE,
+        "real_split_strategy": split_strategy,
         "real_windows": len(windows),
         "generated_samples": n_generated,
         "splits": {
@@ -222,14 +275,25 @@ def main() -> None:
         },
         "label_definition": {"real": 1, "generated": 0},
     }
+    if real_periods is not None:
+        summary["real_periods"] = {
+            split: {
+                "start_row": start,
+                "end_row": end - 1,
+                "start_date": dates[start],
+                "end_date": dates[end - 1],
+            }
+            for split, (start, end) in real_periods.items()
+        }
     (OUT_DIR / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     (OUT_DIR / "README.md").write_text(
         "\n".join(
             [
                 "# MF2 Regime-Correlation LightGBM Split Data",
                 "",
-                "- real samples are 1260-day windows from train data with stride 20.",
-                "- real samples are split in chronological block order.",
+                f"- real samples are {WINDOW_LENGTH}-day windows from train data with stride {STRIDE}.",
+                f"- real split strategy: {split_strategy}.",
+                "- period_then_window means raw periods are split first and no real window crosses a split boundary.",
                 "- generated samples are split by sample order.",
                 "- label: real=1, generated=0.",
                 "",

@@ -71,25 +71,21 @@ def main() -> None:
     x_val_scaled = scaler.transform(np.asarray(x_val, dtype=float))
     x_test_scaled = scaler.transform(np.asarray(x_test, dtype=float))
 
-    model = lgb.LGBMClassifier(
-        objective="binary",
-        random_state=42,
-        class_weight="balanced",
-        learning_rate=0.03,
-        max_depth=4,
-        num_leaves=15,
-        min_child_samples=20,
-        n_estimators=1000,
-        colsample_bytree=0.8,
-        subsample=0.8,
-        subsample_freq=1,
-        verbosity=-1,
-    )
+    model_params = dict(config["lightgbm_params"])
+    model_params.setdefault("verbosity", -1)
+    early_stopping_config = config["early_stopping"]
+    model = lgb.LGBMClassifier(**model_params)
     model.fit(
         x_train_scaled,
         np.asarray(y_train),
         eval_set=[(x_val_scaled, np.asarray(y_val))],
-        callbacks=[lgb.early_stopping(stopping_rounds=50, verbose=True)],
+        eval_metric=early_stopping_config["eval_metric"],
+        callbacks=[
+            lgb.early_stopping(
+                stopping_rounds=int(early_stopping_config["stopping_rounds"]),
+                verbose=True,
+            )
+        ],
     )
 
     RUN_DIR.mkdir(parents=True, exist_ok=True)
@@ -129,6 +125,18 @@ def main() -> None:
         writer.writerows(importances)
 
     (results_dir / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
+    (results_dir / "effective_training_config.json").write_text(
+        json.dumps(
+            {
+                "lightgbm_params": model_params,
+                "early_stopping": early_stopping_config,
+                "best_iteration": model.best_iteration_,
+                "feature_count": len(feature_cols),
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     (results_dir / "README.md").write_text(
         "# MF2 Regime-Correlation Baseline LightGBM\n\n"
         "Features match `detection_light-gbm.ipynb` baseline feature set.\n\n"
