@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2095" height="1035" viewBox="0 0 2095 1035">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title{font-size:25px;font-weight:700;fill:#0f172a}.sub{font-size:15px;fill:#475569}.node-title{font-size:14px;font-weight:700;fill:#0f172a}.node-text{font-size:12px;fill:#334155}.edge{stroke:#94a3b8;stroke-width:2}.edge-label{font-size:12px;font-weight:700;fill:#475569}</style>
+<text x="30" y="38" class="title">Tree 1 — gain合計 725.573</text>
+<text x="30" y="66" class="sub">葉数 10 / 最大深さ 4 / 左枝: 条件成立 / 右枝: 条件不成立</text>
+<line x1="1021.9" y1="149.0" x2="458.1" y2="231.0" class="edge"/>
+<text x="740.0" y="185.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="458.1" y1="319.0" x2="227.5" y2="401.0" class="edge"/>
+<text x="342.8" y="355.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="227.5" y1="489.0" x2="125.0" y2="571.0" class="edge"/>
+<text x="176.2" y="525.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="227.5" y1="489.0" x2="330.0" y2="571.0" class="edge"/>
+<text x="278.8" y="525.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="458.1" y1="319.0" x2="688.8" y2="401.0" class="edge"/>
+<text x="573.4" y="355.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="688.8" y1="489.0" x2="535.0" y2="571.0" class="edge"/>
+<text x="611.9" y="525.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="688.8" y1="489.0" x2="842.5" y2="571.0" class="edge"/>
+<text x="765.6" y="525.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="842.5" y1="659.0" x2="740.0" y2="741.0" class="edge"/>
+<text x="791.2" y="695.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="842.5" y1="659.0" x2="945.0" y2="741.0" class="edge"/>
+<text x="893.8" y="695.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="1021.9" y1="149.0" x2="1585.6" y2="231.0" class="edge"/>
+<text x="1303.8" y="185.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="1585.6" y1="319.0" x2="1303.8" y2="401.0" class="edge"/>
+<text x="1444.7" y="355.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="1303.8" y1="489.0" x2="1150.0" y2="571.0" class="edge"/>
+<text x="1226.9" y="525.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="1303.8" y1="489.0" x2="1457.5" y2="571.0" class="edge"/>
+<text x="1380.6" y="525.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="1457.5" y1="659.0" x2="1355.0" y2="741.0" class="edge"/>
+<text x="1406.2" y="695.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="1457.5" y1="659.0" x2="1560.0" y2="741.0" class="edge"/>
+<text x="1508.8" y="695.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="1585.6" y1="319.0" x2="1867.5" y2="401.0" class="edge"/>
+<text x="1726.6" y="355.0" text-anchor="middle" class="edge-label">No</text>
+<line x1="1867.5" y1="489.0" x2="1765.0" y2="571.0" class="edge"/>
+<text x="1816.2" y="525.0" text-anchor="middle" class="edge-label">Yes</text>
+<line x1="1867.5" y1="489.0" x2="1970.0" y2="571.0" class="edge"/>
+<text x="1918.8" y="525.0" text-anchor="middle" class="edge-label">No</text>
+<rect x="926.9" y="61.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1021.9" y="81.0" text-anchor="middle" class="node-title">joint_large_move_95</text>
+<text x="1021.9" y="100.0" text-anchor="middle" class="node-text">標準化後 ≤ 1e-35</text>
+<text x="1021.9" y="119.0" text-anchor="middle" class="node-text">元尺度 ≤ 0.0076476</text>
+<text x="1021.9" y="138.0" text-anchor="middle" class="node-text">gain 278.35 / 件数 901</text>
+<rect x="363.1" y="231.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="458.1" y="251.0" text-anchor="middle" class="node-title">rate_std</text>
+<text x="458.1" y="270.0" text-anchor="middle" class="node-text">標準化後 ≤ -0.9568</text>
+<text x="458.1" y="289.0" text-anchor="middle" class="node-text">元尺度 ≤ 0.042903</text>
+<text x="458.1" y="308.0" text-anchor="middle" class="node-text">gain 189.54 / 件数 550</text>
+<rect x="132.5" y="401.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="227.5" y="421.0" text-anchor="middle" class="node-title">sp_kurt</text>
+<text x="227.5" y="440.0" text-anchor="middle" class="node-text">標準化後 ≤ -0.33561</text>
+<text x="227.5" y="459.0" text-anchor="middle" class="node-text">元尺度 ≤ 1.8279</text>
+<text x="227.5" y="478.0" text-anchor="middle" class="node-text">gain 0.61879 / 件数 45</text>
+<rect x="30.0" y="571.0" width="190" height="88" rx="10" fill="#dcfce7" stroke="#64748b"/>
+<text x="125.0" y="591.0" text-anchor="middle" class="node-title">Leaf 0</text>
+<text x="125.0" y="610.0" text-anchor="middle" class="node-text">値 0.047063</text>
+<text x="125.0" y="629.0" text-anchor="middle" class="node-text">件数 20</text>
+<rect x="235.0" y="571.0" width="190" height="88" rx="10" fill="#dcfce7" stroke="#64748b"/>
+<text x="330.0" y="591.0" text-anchor="middle" class="node-title">Leaf 7</text>
+<text x="330.0" y="610.0" text-anchor="middle" class="node-text">値 0.058392</text>
+<text x="330.0" y="629.0" text-anchor="middle" class="node-text">件数 25</text>
+<rect x="593.8" y="401.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="688.8" y="421.0" text-anchor="middle" class="node-title">corr_sp_rate</text>
+<text x="688.8" y="440.0" text-anchor="middle" class="node-text">標準化後 ≤ -0.93033</text>
+<text x="688.8" y="459.0" text-anchor="middle" class="node-text">元尺度 ≤ -0.30815</text>
+<text x="688.8" y="478.0" text-anchor="middle" class="node-text">gain 42.625 / 件数 505</text>
+<rect x="440.0" y="571.0" width="190" height="88" rx="10" fill="#dcfce7" stroke="#64748b"/>
+<text x="535.0" y="591.0" text-anchor="middle" class="node-title">Leaf 2</text>
+<text x="535.0" y="610.0" text-anchor="middle" class="node-text">値 0.024501</text>
+<text x="535.0" y="629.0" text-anchor="middle" class="node-text">件数 20</text>
+<rect x="747.5" y="571.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="842.5" y="591.0" text-anchor="middle" class="node-title">joint_large_move_95</text>
+<text x="842.5" y="610.0" text-anchor="middle" class="node-text">標準化後 ≤ -0.12963</text>
+<text x="842.5" y="629.0" text-anchor="middle" class="node-text">元尺度 ≤ 0.006746</text>
+<text x="842.5" y="648.0" text-anchor="middle" class="node-text">gain 0.0098205 / 件数 485</text>
+<rect x="645.0" y="741.0" width="190" height="88" rx="10" fill="#fee2e2" stroke="#64748b"/>
+<text x="740.0" y="761.0" text-anchor="middle" class="node-title">Leaf 4</text>
+<text x="740.0" y="780.0" text-anchor="middle" class="node-text">値 -0.058314</text>
+<text x="740.0" y="799.0" text-anchor="middle" class="node-text">件数 463</text>
+<rect x="850.0" y="741.0" width="190" height="88" rx="10" fill="#fee2e2" stroke="#64748b"/>
+<text x="945.0" y="761.0" text-anchor="middle" class="node-title">Leaf 8</text>
+<text x="945.0" y="780.0" text-anchor="middle" class="node-text">値 -0.059851</text>
+<text x="945.0" y="799.0" text-anchor="middle" class="node-text">件数 22</text>
+<rect x="1490.6" y="231.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1585.6" y="251.0" text-anchor="middle" class="node-title">corr_sp_rate</text>
+<text x="1585.6" y="270.0" text-anchor="middle" class="node-text">標準化後 ≤ 1.4571</text>
+<text x="1585.6" y="289.0" text-anchor="middle" class="node-text">元尺度 ≤ 0.46537</text>
+<text x="1585.6" y="308.0" text-anchor="middle" class="node-text">gain 169.24 / 件数 351</text>
+<rect x="1208.8" y="401.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1303.8" y="421.0" text-anchor="middle" class="node-title">sp_kurt</text>
+<text x="1303.8" y="440.0" text-anchor="middle" class="node-text">標準化後 ≤ -0.3839</text>
+<text x="1303.8" y="459.0" text-anchor="middle" class="node-text">元尺度 ≤ 1.2064</text>
+<text x="1303.8" y="478.0" text-anchor="middle" class="node-text">gain 25.717 / 件数 260</text>
+<rect x="1055.0" y="571.0" width="190" height="88" rx="10" fill="#fee2e2" stroke="#64748b"/>
+<text x="1150.0" y="591.0" text-anchor="middle" class="node-title">Leaf 1</text>
+<text x="1150.0" y="610.0" text-anchor="middle" class="node-text">値 -0.060987</text>
+<text x="1150.0" y="629.0" text-anchor="middle" class="node-text">件数 11</text>
+<rect x="1362.5" y="571.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1457.5" y="591.0" text-anchor="middle" class="node-title">rate_tail_ratio</text>
+<text x="1457.5" y="610.0" text-anchor="middle" class="node-text">標準化後 ≤ 0.62387</text>
+<text x="1457.5" y="629.0" text-anchor="middle" class="node-text">元尺度 ≤ 3.2663</text>
+<text x="1457.5" y="648.0" text-anchor="middle" class="node-text">gain 19.466 / 件数 249</text>
+<rect x="1260.0" y="741.0" width="190" height="88" rx="10" fill="#dcfce7" stroke="#64748b"/>
+<text x="1355.0" y="761.0" text-anchor="middle" class="node-title">Leaf 5</text>
+<text x="1355.0" y="780.0" text-anchor="middle" class="node-text">値 0.053433</text>
+<text x="1355.0" y="799.0" text-anchor="middle" class="node-text">件数 213</text>
+<rect x="1465.0" y="741.0" width="190" height="88" rx="10" fill="#dcfce7" stroke="#64748b"/>
+<text x="1560.0" y="761.0" text-anchor="middle" class="node-title">Leaf 6</text>
+<text x="1560.0" y="780.0" text-anchor="middle" class="node-text">値 0.0082192</text>
+<text x="1560.0" y="799.0" text-anchor="middle" class="node-text">件数 36</text>
+<rect x="1772.5" y="401.0" width="190" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1867.5" y="421.0" text-anchor="middle" class="node-title">sp_mean</text>
+<text x="1867.5" y="440.0" text-anchor="middle" class="node-text">標準化後 ≤ -0.095538</text>
+<text x="1867.5" y="459.0" text-anchor="middle" class="node-text">元尺度 ≤ 0.000322</text>
+<text x="1867.5" y="478.0" text-anchor="middle" class="node-text">gain 7.1054e-15 / 件数 91</text>
+<rect x="1670.0" y="571.0" width="190" height="88" rx="10" fill="#fee2e2" stroke="#64748b"/>
+<text x="1765.0" y="591.0" text-anchor="middle" class="node-title">Leaf 3</text>
+<text x="1765.0" y="610.0" text-anchor="middle" class="node-text">値 -0.058253</text>
+<text x="1765.0" y="629.0" text-anchor="middle" class="node-text">件数 35</text>
+<rect x="1875.0" y="571.0" width="190" height="88" rx="10" fill="#fee2e2" stroke="#64748b"/>
+<text x="1970.0" y="591.0" text-anchor="middle" class="node-title">Leaf 9</text>
+<text x="1970.0" y="610.0" text-anchor="middle" class="node-text">値 -0.058253</text>
+<text x="1970.0" y="629.0" text-anchor="middle" class="node-text">件数 56</text>
+</svg>

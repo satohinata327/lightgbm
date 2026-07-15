@@ -1,0 +1,206 @@
+{
+  "model_dir": "/Users/satouhinata/Documents/DSS_code/lightgbm/train/stride20_blocked_cv_za_mf2/model",
+  "tree_count": 36,
+  "ranking_metric": "sum of split_gain in each tree",
+  "top_k": 5,
+  "trees": [
+    {
+      "tree_index": 0,
+      "gain_total": 773.0648059844971,
+      "num_leaves": 9,
+      "max_depth": 4,
+      "used_features": {
+        "joint_large_move_95": {
+          "split_count": 2,
+          "gain": 297.67211532592773
+        },
+        "sp_acf1": {
+          "split_count": 1,
+          "gain": 224.90699768066406
+        },
+        "sp_std": {
+          "split_count": 1,
+          "gain": 19.030899047851562
+        },
+        "corr_sp_rate": {
+          "split_count": 1,
+          "gain": 168.468994140625
+        },
+        "rate_tail_ratio": {
+          "split_count": 1,
+          "gain": 28.076799392700195
+        },
+        "rate_acf5": {
+          "split_count": 1,
+          "gain": 34.909000396728516
+        },
+        "rate_std": {
+          "split_count": 1,
+          "gain": 1.4210900454981155e-14
+        }
+      },
+      "svg": "rank_01_tree_00.svg",
+      "rank": 1
+    },
+    {
+      "tree_index": 1,
+      "gain_total": 725.573323328048,
+      "num_leaves": 10,
+      "max_depth": 4,
+      "used_features": {
+        "joint_large_move_95": {
+          "split_count": 2,
+          "gain": 278.3608336634934
+        },
+        "rate_std": {
+          "split_count": 1,
+          "gain": 189.5449981689453
+        },
+        "sp_kurt": {
+          "split_count": 2,
+          "gain": 26.335794031620026
+        },
+        "corr_sp_rate": {
+          "split_count": 2,
+          "gain": 211.86599731445312
+        },
+        "rate_tail_ratio": {
+          "split_count": 1,
+          "gain": 19.465700149536133
+        },
+        "sp_mean": {
+          "split_count": 1,
+          "gain": 7.105429898699844e-15
+        }
+      },
+      "svg": "rank_02_tree_01.svg",
+      "rank": 2
+    },
+    {
+      "tree_index": 2,
+      "gain_total": 701.0633399024373,
+      "num_leaves": 12,
+      "max_depth": 4,
+      "used_features": {
+        "sp_kurt": {
+          "split_count": 1,
+          "gain": 207.66600036621094
+        },
+        "sp_std": {
+          "split_count": 1,
+          "gain": 0.00349634001031518
+        },
+        "rate_abs_acf1": {
+          "split_count": 2,
+          "gain": 67.90202125161886
+        },
+        "corr_sp_rate": {
+          "split_count": 2,
+          "gain": 131.30818426597398
+        },
+        "sp_q90_abs": {
+          "split_count": 1,
+          "gain": 138.46099853515625
+        },
+        "sp_acf1": {
+          "split_count": 2,
+          "gain": 152.98500508069992
+        },
+        "rate_skew": {
+          "split_count": 1,
+          "gain": 0.5604640245437622
+        },
+        "sp_q95_abs": {
+          "split_count": 1,
+          "gain": 2.1771700382232666
+        }
+      },
+      "svg": "rank_03_tree_02.svg",
+      "rank": 3
+    },
+    {
+      "tree_index": 3,
+      "gain_total": 656.5882148633937,
+      "num_leaves": 11,
+      "max_depth": 4,
+      "used_features": {
+        "joint_large_move_95": {
+          "split_count": 1,
+          "gain": 246.04100036621094
+        },
+        "sp_acf1": {
+          "split_count": 2,
+          "gain": 195.6233953385381
+        },
+        "sp_q90_abs": {
+          "split_count": 1,
+          "gain": 16.748300552368164
+        },
+        "corr_sp_rate": {
+          "split_count": 2,
+          "gain": 146.44716164283454
+        },
+        "rate_skew": {
+          "split_count": 1,
+          "gain": 0.000708971987478435
+        },
+        "sp_tail_ratio": {
+          "split_count": 1,
+          "gain": 30.240400314331055
+        },
+        "sp_acf5": {
+          "split_count": 1,
+          "gain": 21.487199783325195
+        },
+        "sp_kurt": {
+          "split_count": 1,
+          "gain": 4.7893798182485625e-05
+        }
+      },
+      "svg": "rank_04_tree_03.svg",
+      "rank": 4
+    },
+    {
+      "tree_index": 4,
+      "gain_total": 612.423163253523,
+      "num_leaves": 11,
+      "max_depth": 4,
+      "used_features": {
+        "joint_large_move_95": {
+          "split_count": 1,
+          "gain": 230.67100524902344
+        },
+        "rate_std": {
+          "split_count": 1,
+          "gain": 169.3280029296875
+        },
+        "rate_tail_ratio": {
+          "split_count": 2,
+          "gain": 20.14669570699334
+        },
+        "corr_sp_rate": {
+          "split_count": 2,
+          "gain": 157.40220069885254
+        },
+        "sp_std": {
+          "split_count": 1,
+          "gain": 0.01239820010960102
+        },
+        "sp_kurt": {
+          "split_count": 1,
+          "gain": 34.862098693847656
+        },
+        "rate_abs_acf1": {
+          "split_count": 1,
+          "gain": 0.0005807100096717477
+        },
+        "sp_skew": {
+          "split_count": 1,
+          "gain": 0.0001810649991966784
+        }
+      },
+      "svg": "rank_05_tree_04.svg",
+      "rank": 5
+    }
+  ]
+}
