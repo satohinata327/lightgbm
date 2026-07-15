@@ -1,5 +1,3 @@
-# Pseudo-final datasets
+# 疑似finalデータセット
 
-`scripts/create_pseudo_final.py` creates reproducible mixed datasets. Each
-dataset directory stores the CSV together with a manifest recording the seed,
-source samples, labels, and real-data date ranges.
+`scripts/create_pseudo_final.py`は再現可能な混合データセットを作成する。各データセットのディレクトリにはCSVとmanifestを保存し、乱数seed、元サンプル、ラベル、実データの日付範囲を記録する。

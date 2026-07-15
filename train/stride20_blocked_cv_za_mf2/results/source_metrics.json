@@ -1,0 +1,19 @@
+{
+  "B5": {
+    "real": {
+      "n": 85,
+      "accuracy": 0.8470588235294118,
+      "mean_prob_real": 0.6125132401376471
+    },
+    "za_final7": {
+      "n": 100,
+      "generated_specificity": 0.93,
+      "mean_prob_real": 0.241929112081
+    },
+    "mf2_garch_regime_corr": {
+      "n": 100,
+      "generated_specificity": 1.0,
+      "mean_prob_real": 0.184986061874
+    }
+  }
+}

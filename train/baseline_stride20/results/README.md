@@ -1,14 +1,14 @@
-# MF2 Regime-Correlation Baseline LightGBM
+# MF2レジーム相関ベースラインLightGBM
 
-Features match `detection_light-gbm.ipynb` baseline feature set.
+特徴量は`detection_light-gbm.ipynb`のベースライン特徴量セットと同一である。
 
-## Metrics
+## 評価指標
 
-- train: AUC=1.0000, accuracy=0.9960, logloss=0.1369, n=1004
-- val: AUC=0.9929, accuracy=0.7254, logloss=0.3955, n=335
-- test: AUC=0.8021, accuracy=0.5910, logloss=0.6758, n=335
+- 学習：AUC=1.0000、正解率=0.9960、Logloss=0.1369、n=1004
+- Validation：AUC=0.9929、正解率=0.7254、Logloss=0.3955、n=335
+- Test：AUC=0.8021、正解率=0.5910、Logloss=0.6758、n=335
 
-## Top Features
+## 重要度上位の特徴量
 
 - corr_sp_rate: 76
 - rate_acf1: 58
