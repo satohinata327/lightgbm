@@ -1,0 +1,38 @@
+{
+  "experiment_name": "stride20_blocked_cv_za_final7",
+  "experiment_dir": "train/stride20_blocked_cv_za_final7",
+  "train_csv": "../train_data/train_sp500_us10y.csv",
+  "generated_wide_csv": "../za_final7_1000paths_wide.csv",
+  "data_name": "za_final7",
+  "window_length": 1260,
+  "stride": 20,
+  "feature_count": 26,
+  "negative_sources": [
+    "za_final7"
+  ],
+  "blocked_cv": {
+    "n_blocks": 5,
+    "validation_blocks": [1, 2, 3],
+    "final_test_block": 4
+  },
+  "lightgbm_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "n_estimators": 1000,
+    "colsample_bytree": 0.8,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "reg_alpha": 0.0,
+    "reg_lambda": 0.0,
+    "min_split_gain": 0.0
+  },
+  "early_stopping": {
+    "eval_metric": "binary_logloss",
+    "stopping_rounds": 50
+  }
+}

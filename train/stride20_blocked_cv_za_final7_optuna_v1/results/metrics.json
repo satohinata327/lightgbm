@@ -1,0 +1,13 @@
+{
+  "auc": 0.9954411764705883,
+  "accuracy": 0.8982456140350877,
+  "balanced_accuracy": 0.9275,
+  "logloss": 0.42731099747157264,
+  "n": 285,
+  "tp": 85,
+  "fn": 0,
+  "tn": 171,
+  "fp": 29,
+  "real_recall": 1.0,
+  "generated_specificity": 0.855
+}

@@ -1,0 +1,25 @@
+{
+  "lightgbm_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "n_estimators": 1000,
+    "colsample_bytree": 0.8,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "reg_alpha": 0.0,
+    "reg_lambda": 0.0,
+    "min_split_gain": 0.0,
+    "verbosity": -1
+  },
+  "early_stopping": {
+    "eval_metric": "binary_logloss",
+    "stopping_rounds": 50
+  },
+  "best_iteration": 19,
+  "feature_count": 26
+}

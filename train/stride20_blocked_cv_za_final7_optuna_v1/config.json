@@ -1,0 +1,26 @@
+{
+  "experiment_name": "stride20_blocked_cv_za_final7_optuna_v1",
+  "experiment_dir": "train/stride20_blocked_cv_za_final7_optuna_v1",
+  "source_blocked_features": "train/stride20_blocked_cv_za_final7/data/blocked_features",
+  "blocked_cv": {
+    "n_blocks": 5,
+    "validation_blocks": [1, 2, 3],
+    "final_test_block": 4
+  },
+  "fixed_lightgbm_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "learning_rate": 0.03,
+    "n_estimators": 1000
+  },
+  "early_stopping": {
+    "eval_metric": "binary_logloss",
+    "stopping_rounds": 50
+  },
+  "optuna": {
+    "n_trials": 60,
+    "sampler_seed": 42,
+    "auc_std_penalty": 0.5
+  }
+}

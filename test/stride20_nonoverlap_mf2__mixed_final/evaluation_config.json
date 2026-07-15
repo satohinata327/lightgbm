@@ -1,0 +1,5 @@
+{
+  "model": "train/stride20_nonoverlap_mf2/model",
+  "target": "../mixed_final_masked.csv",
+  "target_name": "mixed_final"
+}

@@ -1,0 +1,207 @@
+{
+  "experiment_name": "stride20_blocked_cv_za_final7",
+  "real_blocks": [
+    {
+      "block": 0,
+      "row_start": 0,
+      "row_end": 2945,
+      "start_date": "1966-01-03",
+      "end_date": "1978-01-30",
+      "n_rows": 2946,
+      "n_windows": 85
+    },
+    {
+      "block": 1,
+      "row_start": 2946,
+      "row_end": 5892,
+      "start_date": "1978-01-31",
+      "end_date": "1990-01-29",
+      "n_rows": 2947,
+      "n_windows": 85
+    },
+    {
+      "block": 2,
+      "row_start": 5893,
+      "row_end": 8839,
+      "start_date": "1990-01-30",
+      "end_date": "2001-12-26",
+      "n_rows": 2947,
+      "n_windows": 85
+    },
+    {
+      "block": 3,
+      "row_start": 8840,
+      "row_end": 11786,
+      "start_date": "2001-12-27",
+      "end_date": "2013-11-14",
+      "n_rows": 2947,
+      "n_windows": 85
+    },
+    {
+      "block": 4,
+      "row_start": 11787,
+      "row_end": 14733,
+      "start_date": "2013-11-15",
+      "end_date": "2025-10-02",
+      "n_rows": 2947,
+      "n_windows": 85
+    }
+  ],
+  "generated_blocks": [
+    {
+      "block": 0,
+      "n_samples": 200
+    },
+    {
+      "block": 1,
+      "n_samples": 200
+    },
+    {
+      "block": 2,
+      "n_samples": 200
+    },
+    {
+      "block": 3,
+      "n_samples": 200
+    },
+    {
+      "block": 4,
+      "n_samples": 200
+    }
+  ],
+  "folds": [
+    {
+      "fold": 1,
+      "train_blocks": [
+        0
+      ],
+      "validation_block": 1,
+      "train_real": 85,
+      "train_generated": 200,
+      "validation_real": 85,
+      "validation_generated": 200,
+      "best_iteration": 18,
+      "metrics": {
+        "auc": 0.46614705882352947,
+        "accuracy": 0.7017543859649122,
+        "balanced_accuracy": 0.5,
+        "logloss": 0.5971426674223071,
+        "n": 285,
+        "tp": 0,
+        "fn": 85,
+        "tn": 200,
+        "fp": 0,
+        "real_recall": 0.0,
+        "generated_specificity": 1.0
+      }
+    },
+    {
+      "fold": 2,
+      "train_blocks": [
+        0,
+        1
+      ],
+      "validation_block": 2,
+      "train_real": 170,
+      "train_generated": 400,
+      "validation_real": 85,
+      "validation_generated": 200,
+      "best_iteration": 66,
+      "metrics": {
+        "auc": 0.8708235294117648,
+        "accuracy": 0.8842105263157894,
+        "balanced_accuracy": 0.8227941176470588,
+        "logloss": 0.3855756291414382,
+        "n": 285,
+        "tp": 57,
+        "fn": 28,
+        "tn": 195,
+        "fp": 5,
+        "real_recall": 0.6705882352941176,
+        "generated_specificity": 0.975
+      }
+    },
+    {
+      "fold": 3,
+      "train_blocks": [
+        0,
+        1,
+        2
+      ],
+      "validation_block": 3,
+      "train_real": 255,
+      "train_generated": 600,
+      "validation_real": 85,
+      "validation_generated": 200,
+      "best_iteration": 15,
+      "metrics": {
+        "auc": 0.6513529411764706,
+        "accuracy": 0.6842105263157895,
+        "balanced_accuracy": 0.4875,
+        "logloss": 0.6221804028786848,
+        "n": 285,
+        "tp": 0,
+        "fn": 85,
+        "tn": 195,
+        "fp": 5,
+        "real_recall": 0.0,
+        "generated_specificity": 0.975
+      }
+    }
+  ],
+  "cv": {
+    "auc_mean": 0.6627745098039216,
+    "auc_std": 0.20257986236141884,
+    "auc_min": 0.46614705882352947,
+    "real_recall_mean": 0.22352941176470587,
+    "best_iterations": [
+      18,
+      66,
+      15
+    ],
+    "final_n_estimators": 18
+  },
+  "final": {
+    "train_blocks": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "test_block": 4,
+    "train_real": 340,
+    "train_generated": 800,
+    "test_real": 85,
+    "test_generated": 200,
+    "metrics": {
+      "auc": 0.9905588235294117,
+      "accuracy": 0.9754385964912281,
+      "balanced_accuracy": 0.9824999999999999,
+      "logloss": 0.40086921160754246,
+      "n": 285,
+      "tp": 85,
+      "fn": 0,
+      "tn": 193,
+      "fp": 7,
+      "real_recall": 1.0,
+      "generated_specificity": 0.965
+    }
+  },
+  "effective_lightgbm_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "n_estimators": 18,
+    "colsample_bytree": 0.8,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "reg_alpha": 0.0,
+    "reg_lambda": 0.0,
+    "min_split_gain": 0.0,
+    "verbosity": -1
+  }
+}

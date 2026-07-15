@@ -1,0 +1,5 @@
+{
+  "model": "train/stride20_blocked_cv_za_final7/model",
+  "target": "../mixed_final_masked.csv",
+  "target_name": "mixed_final"
+}

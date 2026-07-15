@@ -1,0 +1,36 @@
+{
+  "experiment_name": "stride20_nonoverlap_mf2",
+  "experiment_dir": "train/stride20_nonoverlap_mf2",
+  "train_csv": "../train_data/train_sp500_us10y.csv",
+  "generated_wide_csv": "../garch_origin/models/mf2_garch_regime_corr/runs/run_001/generated_1000_wide/mf2_garch_regime_corr_1000x1260_wide.csv",
+  "window_length": 1260,
+  "stride": 20,
+  "train_ratio": 0.6,
+  "val_ratio": 0.2,
+  "real_split_strategy": "period_then_window",
+  "random_state": 42,
+  "feature_count": 26,
+  "negative_sources": [
+    "mf2_garch_regime_corr"
+  ],
+  "lightgbm_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "n_estimators": 1000,
+    "colsample_bytree": 0.8,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "reg_alpha": 0.0,
+    "reg_lambda": 0.0,
+    "min_split_gain": 0.0
+  },
+  "early_stopping": {
+    "eval_metric": "binary_logloss",
+    "stopping_rounds": 50
+  }
+}
