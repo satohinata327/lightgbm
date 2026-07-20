@@ -143,6 +143,32 @@ BASELINE_SMOOTH_JOINT_PLUS_SP_LEAD_RATE_CORR1_FEATURES = [
     "sp_lead_rate_corr_1",
 ]
 
+ACF_MEAN_1_5_FEATURES = [
+    "sp_acf_mean_1_5",
+    "sp_abs_acf_mean_1_5",
+    "rate_acf_mean_1_5",
+    "rate_abs_acf_mean_1_5",
+]
+
+BASELINE_ACF_MEAN_1_5_FEATURES = [
+    *[
+        feature
+        for feature in FEATURE_COLUMNS
+        if feature
+        not in {
+            "sp_acf1",
+            "sp_acf5",
+            "sp_abs_acf1",
+            "sp_abs_acf5",
+            "rate_acf1",
+            "rate_acf5",
+            "rate_abs_acf1",
+            "rate_abs_acf5",
+        }
+    ],
+    *ACF_MEAN_1_5_FEATURES,
+]
+
 HYBRID_18_FEATURES = [
     "sp_std", "sp_skew", "sp_kurt", "sp_abs_acf1",
     "sp_leverage_corr_1", "sp_leverage_corr_5",
@@ -194,6 +220,8 @@ def feature_columns(
         return list(NO_JOINT_CROSS_ASSET_10_PLUS_UNIVARIATE_14_FEATURES)
     if feature_set_mode == "baseline_smooth_joint_plus_sp_lead_rate_corr1":
         return list(BASELINE_SMOOTH_JOINT_PLUS_SP_LEAD_RATE_CORR1_FEATURES)
+    if feature_set_mode == "baseline_acf_mean_1_5":
+        return list(BASELINE_ACF_MEAN_1_5_FEATURES)
     if feature_set_mode == "hybrid_18":
         return list(HYBRID_18_FEATURES)
     if feature_set_mode != "baseline":
@@ -299,6 +327,11 @@ def autocorr(xs: list[float], lag: int) -> float:
     if len(xs) <= lag:
         return 0.0
     return corr(xs[:-lag], xs[lag:])
+
+
+def mean_autocorr_1_5(xs: list[float]) -> float:
+    """Arithmetic mean of autocorrelations at lags 1, 2, 3, 4, and 5."""
+    return mean([autocorr(xs, lag) for lag in range(1, 6)])
 
 
 def leverage_corr(xs: list[float], horizon: int) -> float:
@@ -603,6 +636,8 @@ def features_for_pair(
         "sp_acf5": autocorr(sp, 5),
         "sp_abs_acf1": autocorr(sp_abs, 1),
         "sp_abs_acf5": autocorr(sp_abs, 5),
+        "sp_acf_mean_1_5": mean_autocorr_1_5(sp),
+        "sp_abs_acf_mean_1_5": mean_autocorr_1_5(sp_abs),
         "sp_abs_future_vol_corr_5": abs_future_vol_corr(sp, 5),
         "sp_leverage_corr_1": leverage_corr(sp, 1),
         "sp_leverage_corr_5": leverage_corr(sp, 5),
@@ -610,6 +645,8 @@ def features_for_pair(
         "rate_acf5": autocorr(rate, 5),
         "rate_abs_acf1": autocorr(rate_abs, 1),
         "rate_abs_acf5": autocorr(rate_abs, 5),
+        "rate_acf_mean_1_5": mean_autocorr_1_5(rate),
+        "rate_abs_acf_mean_1_5": mean_autocorr_1_5(rate_abs),
         "rate_abs_future_vol_corr_5": abs_future_vol_corr(rate, 5),
         "corr_sp_rate": corr(sp, rate),
         "joint_large_move_95": joint_features["joint_large_move_95"],
