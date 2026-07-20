@@ -1,0 +1,32 @@
+{
+  "feature_columns": [
+    "sp_mean",
+    "sp_std",
+    "sp_skew",
+    "sp_kurt",
+    "sp_q90_abs",
+    "sp_q95_abs",
+    "sp_q99_abs",
+    "rate_mean",
+    "rate_std",
+    "rate_skew",
+    "rate_kurt",
+    "rate_q90_abs",
+    "rate_q95_abs",
+    "rate_q99_abs",
+    "corr_sp_rate",
+    "joint_large_move_95",
+    "sp_tail_ratio",
+    "rate_tail_ratio",
+    "sp_acf_mean_1_5",
+    "sp_abs_acf_mean_1_5",
+    "rate_acf_mean_1_5",
+    "rate_abs_acf_mean_1_5"
+  ],
+  "rolling_corr_window": null,
+  "rolling_corr_statistics": null,
+  "joint_feature_mode": "single_95",
+  "dependence_feature_mode": "none",
+  "feature_set_mode": "baseline_acf_mean_1_5",
+  "decision_threshold": 0.5
+}
