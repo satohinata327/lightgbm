@@ -1,0 +1,21 @@
+{
+  "feature_columns": [
+    "sp_mean",
+    "sp_skew",
+    "sp_kurt",
+    "sp_abs_acf1",
+    "sp_abs_future_vol_corr_5",
+    "sp_leverage_corr_1",
+    "sp_leverage_corr_5",
+    "rate_mean",
+    "rate_skew",
+    "rate_kurt",
+    "rate_abs_acf1",
+    "rate_abs_future_vol_corr_5"
+  ],
+  "rolling_corr_window": null,
+  "rolling_corr_statistics": null,
+  "joint_feature_mode": "none",
+  "dependence_feature_mode": "none",
+  "feature_set_mode": "univariate_stylized_12_no_std"
+}

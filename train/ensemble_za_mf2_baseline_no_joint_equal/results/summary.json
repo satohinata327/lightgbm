@@ -1,0 +1,11 @@
+{
+  "ensemble_config": "train/ensemble_za_mf2_baseline_no_joint_equal/config.json",
+  "threshold": 0.5,
+  "n": 285,
+  "auc": 0.9668823529411765,
+  "logloss": 0.38808631107794767,
+  "accuracy": 0.9368421052631579,
+  "balanced_accuracy": 0.9144117647058823,
+  "real_recall": 0.8588235294117647,
+  "generated_specificity": 0.97
+}

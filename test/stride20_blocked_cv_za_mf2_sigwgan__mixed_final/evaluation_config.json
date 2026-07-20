@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_sigwgan/model",
+  "target": "mixed_final_masked.csv",
+  "output": "test/stride20_blocked_cv_za_mf2_sigwgan__mixed_final",
+  "selection_note": "Mixed finalは学習、early stopping、モデル選定には使用していない。"
+}

@@ -1,0 +1,10 @@
+{
+  "ensemble_config": "train/ensemble_za_mf2_univariate14_crossasset16_equal/config.json",
+  "evaluation_data": "data/evaluation_sets/pseudo_final_za_mf2_unused_low_overlap_v2",
+  "weights": {
+    "univariate14": 0.5,
+    "crossasset16": 0.5
+  },
+  "threshold": 0.5,
+  "selection_note": "重みは単系列モデルと複数資産間モデルを等しく扱う事前設定であり、mixed_finalの結果を使って選択していない。"
+}

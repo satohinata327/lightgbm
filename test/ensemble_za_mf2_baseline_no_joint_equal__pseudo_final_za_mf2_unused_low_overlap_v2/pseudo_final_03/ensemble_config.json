@@ -1,0 +1,19 @@
+{
+  "ensemble_name": "ensemble_za_mf2_baseline_no_joint_equal",
+  "method": "probability_average",
+  "threshold": 0.5,
+  "models": [
+    {
+      "name": "baseline",
+      "model_dir": "train/stride20_blocked_cv_za_mf2/model",
+      "experiment_dir": "train/stride20_blocked_cv_za_mf2",
+      "weight": 0.5
+    },
+    {
+      "name": "no_joint",
+      "model_dir": "train/stride20_blocked_cv_za_mf2_no_joint/model",
+      "experiment_dir": "train/stride20_blocked_cv_za_mf2_no_joint",
+      "weight": 0.5
+    }
+  ]
+}

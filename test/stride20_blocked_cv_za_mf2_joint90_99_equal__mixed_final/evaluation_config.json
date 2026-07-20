@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_joint90_99_equal/model",
+  "input": "../mixed_final_masked.csv",
+  "output": "test/stride20_blocked_cv_za_mf2_joint90_99_equal__mixed_final",
+  "note": "joint_large_move_95を90-99%等重み平均へ置換した対照実験"
+}

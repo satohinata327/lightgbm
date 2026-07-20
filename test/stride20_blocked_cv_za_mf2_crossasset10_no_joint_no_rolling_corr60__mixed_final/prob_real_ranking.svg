@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="700">
+<rect width="100%" height="100%" fill="white"/>
+<text x="520" y="35" text-anchor="middle" font-family="Arial" font-size="24">LightGBM probability of real data</text>
+<line x1="90" y1="570" x2="990" y2="570" stroke="#333"/>
+<line x1="90" y1="70" x2="90" y2="570" stroke="#333"/>
+<line x1="90" y1="570.0" x2="990" y2="570.0" stroke="#ddd"/>
+<text x="80" y="575.0" text-anchor="end" font-family="Arial" font-size="13">0.0</text>
+<line x1="90" y1="470.0" x2="990" y2="470.0" stroke="#ddd"/>
+<text x="80" y="475.0" text-anchor="end" font-family="Arial" font-size="13">0.2</text>
+<line x1="90" y1="370.0" x2="990" y2="370.0" stroke="#ddd"/>
+<text x="80" y="375.0" text-anchor="end" font-family="Arial" font-size="13">0.4</text>
+<line x1="90" y1="270.0" x2="990" y2="270.0" stroke="#ddd"/>
+<text x="80" y="275.0" text-anchor="end" font-family="Arial" font-size="13">0.6</text>
+<line x1="90" y1="170.0" x2="990" y2="170.0" stroke="#ddd"/>
+<text x="80" y="175.0" text-anchor="end" font-family="Arial" font-size="13">0.8</text>
+<line x1="90" y1="70.0" x2="990" y2="70.0" stroke="#ddd"/>
+<text x="80" y="75.0" text-anchor="end" font-family="Arial" font-size="13">1.0</text>
+<line x1="90" y1="320.0" x2="990" y2="320.0" stroke="#b91c1c" stroke-dasharray="6,5"/>
+<rect x="95.0" y="237.3" width="54.3" height="332.7" fill="#2563eb"/>
+<text x="122.1" y="230.3" text-anchor="middle" font-family="Arial" font-size="12">0.665</text>
+<text x="122.1" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask3</text>
+<rect x="159.3" y="237.8" width="54.3" height="332.2" fill="#2563eb"/>
+<text x="186.4" y="230.8" text-anchor="middle" font-family="Arial" font-size="12">0.664</text>
+<text x="186.4" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask6</text>
+<rect x="223.6" y="238.1" width="54.3" height="331.9" fill="#2563eb"/>
+<text x="250.7" y="231.1" text-anchor="middle" font-family="Arial" font-size="12">0.664</text>
+<text x="250.7" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask4</text>
+<rect x="287.9" y="301.3" width="54.3" height="268.7" fill="#2563eb"/>
+<text x="315.0" y="294.3" text-anchor="middle" font-family="Arial" font-size="12">0.537</text>
+<text x="315.0" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask2</text>
+<rect x="352.1" y="355.5" width="54.3" height="214.5" fill="#f59e0b"/>
+<text x="379.3" y="348.5" text-anchor="middle" font-family="Arial" font-size="12">0.429</text>
+<text x="379.3" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask10</text>
+<rect x="416.4" y="364.6" width="54.3" height="205.4" fill="#f59e0b"/>
+<text x="443.6" y="357.6" text-anchor="middle" font-family="Arial" font-size="12">0.411</text>
+<text x="443.6" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask9</text>
+<rect x="480.7" y="376.3" width="54.3" height="193.7" fill="#f59e0b"/>
+<text x="507.9" y="369.3" text-anchor="middle" font-family="Arial" font-size="12">0.387</text>
+<text x="507.9" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask7</text>
+<rect x="545.0" y="387.6" width="54.3" height="182.4" fill="#f59e0b"/>
+<text x="572.1" y="380.6" text-anchor="middle" font-family="Arial" font-size="12">0.365</text>
+<text x="572.1" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask13</text>
+<rect x="609.3" y="391.6" width="54.3" height="178.4" fill="#f59e0b"/>
+<text x="636.4" y="384.6" text-anchor="middle" font-family="Arial" font-size="12">0.357</text>
+<text x="636.4" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask8</text>
+<rect x="673.6" y="392.4" width="54.3" height="177.6" fill="#f59e0b"/>
+<text x="700.7" y="385.4" text-anchor="middle" font-family="Arial" font-size="12">0.355</text>
+<text x="700.7" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask14</text>
+<rect x="737.9" y="401.2" width="54.3" height="168.8" fill="#f59e0b"/>
+<text x="765.0" y="394.2" text-anchor="middle" font-family="Arial" font-size="12">0.338</text>
+<text x="765.0" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask12</text>
+<rect x="802.1" y="406.9" width="54.3" height="163.1" fill="#f59e0b"/>
+<text x="829.3" y="399.9" text-anchor="middle" font-family="Arial" font-size="12">0.326</text>
+<text x="829.3" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask11</text>
+<rect x="866.4" y="409.6" width="54.3" height="160.4" fill="#f59e0b"/>
+<text x="893.6" y="402.6" text-anchor="middle" font-family="Arial" font-size="12">0.321</text>
+<text x="893.6" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask5</text>
+<rect x="930.7" y="409.6" width="54.3" height="160.4" fill="#f59e0b"/>
+<text x="957.9" y="402.6" text-anchor="middle" font-family="Arial" font-size="12">0.321</text>
+<text x="957.9" y="595" text-anchor="middle" font-family="Arial" font-size="13">mask1</text>
+</svg>

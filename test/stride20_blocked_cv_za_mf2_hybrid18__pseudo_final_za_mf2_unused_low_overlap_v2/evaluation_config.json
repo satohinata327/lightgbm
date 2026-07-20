@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_hybrid18/model",
+  "target": "data/evaluation_sets/pseudo_final_za_mf2_unused_low_overlap_v2",
+  "output": "test/stride20_blocked_cv_za_mf2_hybrid18__pseudo_final_za_mf2_unused_low_overlap_v2",
+  "selection_note": "Feature selection used the low-overlap pseudo suite and held-out B5, but did not use mixed_final."
+}

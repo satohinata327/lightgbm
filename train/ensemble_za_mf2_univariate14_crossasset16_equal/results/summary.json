@@ -1,0 +1,11 @@
+{
+  "ensemble_config": "train/ensemble_za_mf2_univariate14_crossasset16_equal/config.json",
+  "threshold": 0.5,
+  "n": 285,
+  "auc": 0.9929411764705882,
+  "logloss": 0.4693519894027294,
+  "accuracy": 0.9333333333333333,
+  "balanced_accuracy": 0.895,
+  "real_recall": 0.8,
+  "generated_specificity": 0.99
+}

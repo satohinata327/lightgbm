@@ -1,0 +1,114 @@
+[
+  {
+    "mask": "mask10",
+    "n_rows": 1260,
+    "prob_univariate14": 0.4855735510118355,
+    "prob_crossasset16": 0.6735168133144531,
+    "prob_real": 0.5795451821631443,
+    "pred_label": 1
+  },
+  {
+    "mask": "mask11",
+    "n_rows": 1260,
+    "prob_univariate14": 0.37213522686059636,
+    "prob_crossasset16": 0.6888319718656568,
+    "prob_real": 0.5304835993631266,
+    "pred_label": 1
+  },
+  {
+    "mask": "mask7",
+    "n_rows": 1260,
+    "prob_univariate14": 0.4358059946647468,
+    "prob_crossasset16": 0.29820260141515587,
+    "prob_real": 0.3670042980399513,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask13",
+    "n_rows": 1260,
+    "prob_univariate14": 0.37238335869050687,
+    "prob_crossasset16": 0.31252754462688004,
+    "prob_real": 0.34245545165869345,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask5",
+    "n_rows": 1260,
+    "prob_univariate14": 0.27487892639377537,
+    "prob_crossasset16": 0.3665466484018353,
+    "prob_real": 0.32071278739780534,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask6",
+    "n_rows": 1260,
+    "prob_univariate14": 0.3215497471527671,
+    "prob_crossasset16": 0.29820260141515587,
+    "prob_real": 0.30987617428396147,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask12",
+    "n_rows": 1260,
+    "prob_univariate14": 0.2803968381324787,
+    "prob_crossasset16": 0.330450633201893,
+    "prob_real": 0.30542373566718584,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask8",
+    "n_rows": 1260,
+    "prob_univariate14": 0.31089143928329666,
+    "prob_crossasset16": 0.29821258085524255,
+    "prob_real": 0.3045520100692696,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask9",
+    "n_rows": 1260,
+    "prob_univariate14": 0.3061491255692283,
+    "prob_crossasset16": 0.2973438086920454,
+    "prob_real": 0.30174646713063685,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask14",
+    "n_rows": 1260,
+    "prob_univariate14": 0.2993466671815238,
+    "prob_crossasset16": 0.2981436668997475,
+    "prob_real": 0.29874516704063564,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask3",
+    "n_rows": 1260,
+    "prob_univariate14": 0.2945479279943331,
+    "prob_crossasset16": 0.29794842056405396,
+    "prob_real": 0.29624817427919353,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask1",
+    "n_rows": 1260,
+    "prob_univariate14": 0.29176122085932193,
+    "prob_crossasset16": 0.2989900439185943,
+    "prob_real": 0.29537563238895814,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask2",
+    "n_rows": 1260,
+    "prob_univariate14": 0.28202478171549744,
+    "prob_crossasset16": 0.29820260141515587,
+    "prob_real": 0.2901136915653266,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask4",
+    "n_rows": 1260,
+    "prob_univariate14": 0.27735311206014396,
+    "prob_crossasset16": 0.29820260141515587,
+    "prob_real": 0.2877778567376499,
+    "pred_label": 0
+  }
+]

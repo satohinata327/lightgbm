@@ -14,7 +14,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from build_features import FEATURE_COLUMNS, features_for_pair  # noqa: E402
+from build_features import (  # noqa: E402
+    JOINT_DIAGNOSTIC_COLUMNS,
+    JOINT_DIRECTIONAL_FEATURES,
+    JOINT_EQUAL_MEAN_FEATURE,
+    feature_columns,
+    features_for_pair,
+)
 from prepare_splits import read_generated_wide, read_train_series  # noqa: E402
 
 
@@ -51,6 +57,9 @@ def real_block_rows(
     values: list[tuple[str, str]],
     window_length: int,
     stride: int,
+    rolling_corr_window: int | None = None,
+    joint_feature_mode: str = "single_95",
+    dependence_feature_mode: str = "none",
 ) -> tuple[list[dict[str, object]], dict[str, object]]:
     rows: list[dict[str, object]] = []
     for window_start in range(start, end - window_length + 1, stride):
@@ -65,7 +74,10 @@ def real_block_rows(
                 "block": block_no,
                 "window_start": window_start,
                 "window_end": window_start + window_length - 1,
-                **features_for_pair(sp, dg),
+                **features_for_pair(
+                    sp, dg, rolling_corr_window, joint_feature_mode,
+                    dependence_feature_mode,
+                ),
             }
         )
     manifest = {
@@ -85,6 +97,9 @@ def generated_block_rows(
     sample_indices: list[int],
     generated_rows: list[list[str]],
     source_name: str = "generated",
+    rolling_corr_window: int | None = None,
+    joint_feature_mode: str = "single_95",
+    dependence_feature_mode: str = "none",
 ) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for sample_idx in sample_indices:
@@ -98,13 +113,18 @@ def generated_block_rows(
                 "block": block_no,
                 "window_start": "",
                 "window_end": "",
-                **features_for_pair(sp, dg),
+                **features_for_pair(
+                    sp, dg, rolling_corr_window, joint_feature_mode,
+                    dependence_feature_mode,
+                ),
             }
         )
     return rows
 
 
-def write_feature_rows(path: Path, rows: list[dict[str, object]]) -> None:
+def write_feature_rows(
+    path: Path, rows: list[dict[str, object]], feature_names: list[str]
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = [
         "sample_id",
@@ -113,18 +133,72 @@ def write_feature_rows(path: Path, rows: list[dict[str, object]]) -> None:
         "block",
         "window_start",
         "window_end",
-        *FEATURE_COLUMNS,
+        *feature_names,
     ]
     with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows({field: row[field] for field in fields} for row in rows)
 
 
-def xy(rows: list[dict[str, object]], np):
-    x = np.asarray([[float(row[name]) for name in FEATURE_COLUMNS] for row in rows], dtype=float)
+def xy(rows: list[dict[str, object]], np, feature_names: list[str]):
+    x = np.asarray([[float(row[name]) for name in feature_names] for row in rows], dtype=float)
     y = np.asarray([int(row["label"]) for row in rows], dtype=int)
     return x, y
+
+
+def training_sample_weights(rows: list[dict[str, object]], config, np):
+    configured = config.get("real_block_weights")
+    if not configured:
+        return None, {}
+    raw_real_weights = {
+        int(block): float(weight) for block, weight in configured.items()
+    }
+    real_values = [
+        raw_real_weights.get(int(row["block"]), 1.0)
+        for row in rows
+        if int(row["label"]) == 1
+    ]
+    real_mean = sum(real_values) / len(real_values) if real_values else 1.0
+    weights = np.asarray(
+        [
+            (
+                raw_real_weights.get(int(row["block"]), 1.0) / real_mean
+                if int(row["label"]) == 1
+                else 1.0
+            )
+            for row in rows
+        ],
+        dtype=float,
+    )
+    effective = {
+        str(block): raw_real_weights.get(block, 1.0) / real_mean
+        for block in sorted({int(row["block"]) for row in rows if int(row["label"]) == 1})
+    }
+    return weights, effective
+
+
+def write_joint_diagnostics(path: Path, rows: list[dict[str, object]]) -> None:
+    fields = [
+        "sample_id", "source", "label", "block",
+        *JOINT_DIAGNOSTIC_COLUMNS, JOINT_EQUAL_MEAN_FEATURE,
+    ]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows({field: row[field] for field in fields} for row in rows)
+
+
+def write_joint_directional_diagnostics(
+    path: Path, rows: list[dict[str, object]]
+) -> None:
+    fields = ["sample_id", "source", "label", "block", *JOINT_DIRECTIONAL_FEATURES]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows({field: row[field] for field in fields} for row in rows)
 
 
 def metrics_for(y, prob, pred, metric_functions) -> dict[str, object]:
@@ -177,17 +251,37 @@ def main() -> None:
     validation_blocks = [int(value) for value in config["blocked_cv"]["validation_blocks"]]
     window_length = int(config["window_length"])
     stride = int(config["stride"])
+    rolling_corr_window = (
+        int(config["rolling_corr_window"]) if config.get("rolling_corr_window") else None
+    )
+    rolling_corr_statistics = config.get("rolling_corr_statistics")
+    joint_feature_mode = config.get("joint_feature_mode", "single_95")
+    dependence_feature_mode = config.get("dependence_feature_mode", "none")
+    feature_set_mode = config.get("feature_set_mode", "baseline")
+    feature_names = feature_columns(
+        rolling_corr_window, rolling_corr_statistics, joint_feature_mode,
+        dependence_feature_mode, feature_set_mode,
+    )
 
     real_blocks: list[list[dict[str, object]]] = []
     generated_blocks: list[list[dict[str, object]]] = []
     real_manifest = []
     for block_no, (start, end) in enumerate(block_bounds(len(real_values), n_blocks)):
         rows, manifest = real_block_rows(
-            block_no, start, end, dates, real_values, window_length, stride
+            block_no,
+            start,
+            end,
+            dates,
+            real_values,
+            window_length,
+            stride,
+            rolling_corr_window,
+            joint_feature_mode,
+            dependence_feature_mode,
         )
         real_blocks.append(rows)
         real_manifest.append(manifest)
-        write_feature_rows(data_dir / f"real_block_{block_no + 1}.csv", rows)
+        write_feature_rows(data_dir / f"real_block_{block_no + 1}.csv", rows, feature_names)
     generated_manifest: list[dict[str, object]] = []
     if "generated_sources" in config:
         generated_blocks = [[] for _ in range(n_blocks)]
@@ -198,20 +292,31 @@ def main() -> None:
             generated_header, generated_values = read_generated_wide(source_path)
             n_generated = len(generated_header) // 2
             samples_per_block = int(source["samples_per_block"])
-            needed = n_blocks * samples_per_block
+            pool_block_size = int(source.get("pool_block_size", samples_per_block))
+            if samples_per_block > pool_block_size:
+                raise ValueError(
+                    f"{source_name}: samples_per_block must be <= pool_block_size"
+                )
+            needed = (n_blocks - 1) * pool_block_size + samples_per_block
             if needed > n_generated:
                 raise ValueError(
-                    f"{source_name} needs {needed} disjoint samples, but only {n_generated} are available"
+                    f"{source_name} needs indices through {needed - 1}, but only {n_generated} samples are available"
                 )
             indices = list(range(n_generated))
             random.Random(seed + source_no).shuffle(indices)
             for block_no in range(n_blocks):
                 selected = indices[
-                    block_no * samples_per_block : (block_no + 1) * samples_per_block
+                    block_no * pool_block_size : block_no * pool_block_size + samples_per_block
                 ]
                 generated_blocks[block_no].extend(
                     generated_block_rows(
-                        block_no, selected, generated_values, source_name=source_name
+                        block_no,
+                        selected,
+                        generated_values,
+                        source_name=source_name,
+                        rolling_corr_window=rolling_corr_window,
+                        joint_feature_mode=joint_feature_mode,
+                        dependence_feature_mode=dependence_feature_mode,
                     )
                 )
                 generated_manifest.append(
@@ -219,24 +324,53 @@ def main() -> None:
                         "block": block_no,
                         "source": source_name,
                         "n_samples": len(selected),
+                        "pool_block_size": pool_block_size,
                         "sample_indices_zero_based": selected,
                     }
                 )
         for block_no, rows in enumerate(generated_blocks):
-            write_feature_rows(data_dir / f"generated_block_{block_no + 1}.csv", rows)
+            write_feature_rows(
+                data_dir / f"generated_block_{block_no + 1}.csv", rows, feature_names
+            )
     else:
         generated_csv = (ROOT / config["generated_wide_csv"]).resolve()
         generated_header, generated_values = read_generated_wide(generated_csv)
         n_generated = len(generated_header) // 2
         for block_no, (start, end) in enumerate(block_bounds(n_generated, n_blocks)):
             rows = generated_block_rows(
-                block_no, list(range(start, end)), generated_values
+                block_no,
+                list(range(start, end)),
+                generated_values,
+                rolling_corr_window=rolling_corr_window,
+                joint_feature_mode=joint_feature_mode,
+                dependence_feature_mode=dependence_feature_mode,
             )
             generated_blocks.append(rows)
             generated_manifest.append(
                 {"block": block_no, "source": "generated", "n_samples": len(rows)}
             )
-            write_feature_rows(data_dir / f"generated_block_{block_no + 1}.csv", rows)
+            write_feature_rows(
+                data_dir / f"generated_block_{block_no + 1}.csv", rows, feature_names
+            )
+
+    if joint_feature_mode == "equal_mean_90_99":
+        diagnostic_rows = [
+            row
+            for block_no in range(n_blocks)
+            for row in real_blocks[block_no] + generated_blocks[block_no]
+        ]
+        write_joint_diagnostics(
+            data_dir / "joint_percentile_diagnostics.csv", diagnostic_rows
+        )
+    elif joint_feature_mode == "directional_95":
+        diagnostic_rows = [
+            row
+            for block_no in range(n_blocks)
+            for row in real_blocks[block_no] + generated_blocks[block_no]
+        ]
+        write_joint_directional_diagnostics(
+            data_dir / "joint_directional_diagnostics.csv", diagnostic_rows
+        )
 
     fold_summaries = []
     best_iterations = []
@@ -247,15 +381,19 @@ def main() -> None:
         train_block_ids = list(range(validation_block))
         train_rows = [row for idx in train_block_ids for row in real_blocks[idx] + generated_blocks[idx]]
         val_rows = real_blocks[validation_block] + generated_blocks[validation_block]
-        x_train, y_train = xy(train_rows, np)
-        x_val, y_val = xy(val_rows, np)
+        x_train, y_train = xy(train_rows, np, feature_names)
+        x_val, y_val = xy(val_rows, np, feature_names)
         scaler = StandardScaler()
         x_train = scaler.fit_transform(x_train)
         x_val = scaler.transform(x_val)
         model = lgb.LGBMClassifier(**model_params)
+        train_sample_weight, effective_real_weights = training_sample_weights(
+            train_rows, config, np
+        )
         model.fit(
             x_train,
             y_train,
+            sample_weight=train_sample_weight,
             eval_set=[(x_val, y_val)],
             eval_metric=stopping["eval_metric"],
             callbacks=[
@@ -278,6 +416,7 @@ def main() -> None:
             "validation_real": len(real_blocks[validation_block]),
             "validation_generated": len(generated_blocks[validation_block]),
             "best_iteration": best_iteration,
+            "effective_real_block_weights": effective_real_weights,
             "metrics": fold_metrics,
         }
         fold_summaries.append(fold_summary)
@@ -292,15 +431,18 @@ def main() -> None:
         row for idx in final_train_blocks for row in real_blocks[idx] + generated_blocks[idx]
     ]
     final_test_rows = real_blocks[final_test_block] + generated_blocks[final_test_block]
-    x_train, y_train = xy(final_train_rows, np)
-    x_test, y_test = xy(final_test_rows, np)
+    x_train, y_train = xy(final_train_rows, np, feature_names)
+    x_test, y_test = xy(final_test_rows, np, feature_names)
     final_scaler = StandardScaler()
     x_train = final_scaler.fit_transform(x_train)
     x_test = final_scaler.transform(x_test)
     final_params = dict(model_params)
     final_params["n_estimators"] = final_n_estimators
     final_model = lgb.LGBMClassifier(**final_params)
-    final_model.fit(x_train, y_train)
+    final_sample_weight, final_effective_real_weights = training_sample_weights(
+        final_train_rows, config, np
+    )
+    final_model.fit(x_train, y_train, sample_weight=final_sample_weight)
     test_prob = final_model.predict_proba(x_test)[:, 1]
     test_pred = final_model.predict(x_test)
     test_metrics = metrics_for(y_test, test_prob, test_pred, metric_functions)
@@ -309,12 +451,32 @@ def main() -> None:
         pickle.dump(final_model, f)
     with (model_dir / "scaler.pkl").open("wb") as f:
         pickle.dump(final_scaler, f)
+    (model_dir / "feature_config.json").write_text(
+        json.dumps(
+            {
+                "feature_columns": feature_names,
+                "rolling_corr_window": rolling_corr_window,
+                "rolling_corr_statistics": rolling_corr_statistics,
+                "joint_feature_mode": joint_feature_mode,
+                "dependence_feature_mode": dependence_feature_mode,
+                "feature_set_mode": feature_set_mode,
+                "decision_threshold": config.get("decision_threshold", 0.5),
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     write_predictions(results_dir / "test_predictions.csv", final_test_rows, y_test, test_prob, test_pred)
 
     cv_auc = [float(fold["metrics"]["auc"]) for fold in fold_summaries]
     cv_recall = [float(fold["metrics"]["real_recall"]) for fold in fold_summaries]
     summary = {
         "experiment_name": config["experiment_name"],
+        "feature_columns": feature_names,
+        "joint_feature_mode": joint_feature_mode,
+        "dependence_feature_mode": dependence_feature_mode,
+        "feature_set_mode": feature_set_mode,
+        "configured_real_block_weights": config.get("real_block_weights"),
         "real_blocks": real_manifest,
         "generated_blocks": [
             {"block": idx, "n_samples": len(rows)} for idx, rows in enumerate(generated_blocks)
@@ -336,6 +498,7 @@ def main() -> None:
             "train_generated": sum(len(generated_blocks[idx]) for idx in final_train_blocks),
             "test_real": len(real_blocks[final_test_block]),
             "test_generated": len(generated_blocks[final_test_block]),
+            "effective_real_block_weights": final_effective_real_weights,
             "metrics": test_metrics,
         },
         "effective_lightgbm_params": final_params,

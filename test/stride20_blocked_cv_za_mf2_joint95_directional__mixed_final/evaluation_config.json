@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_joint95_directional/model",
+  "input": "../mixed_final_masked.csv",
+  "output": "test/stride20_blocked_cv_za_mf2_joint95_directional__mixed_final",
+  "note": "joint_large_move_95を符号方向別4特徴量へ置換した対照実験"
+}

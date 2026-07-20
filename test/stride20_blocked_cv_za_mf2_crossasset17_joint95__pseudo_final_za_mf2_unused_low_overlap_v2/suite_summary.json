@@ -1,0 +1,90 @@
+{
+  "model_dir": "train/stride20_blocked_cv_za_mf2_crossasset17_joint95/model",
+  "n_sets": 7,
+  "mean_auc": 0.988095238095238,
+  "perfect_top2_sets": 5,
+  "all_real_in_top4_sets": 7,
+  "positive_margin_sets": 5,
+  "mean_margin": 0.17149412127815475,
+  "all_real_above_0_5_sets": 4,
+  "no_generated_above_0_5_sets": 6,
+  "sets": [
+    {
+      "set": "pseudo_final_01",
+      "auc": 0.9999999999999999,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.6864436839363499,
+      "generated_max_prob": 0.3887872397567166,
+      "separation_margin": 0.29765644417963333,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_02",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.7199217824529653,
+      "generated_max_prob": 0.3863745777544293,
+      "separation_margin": 0.33354720469853605,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_03",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.7088888728220699,
+      "generated_max_prob": 0.265707658891171,
+      "separation_margin": 0.44318121393089893,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_04",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.726522604348065,
+      "generated_max_prob": 0.3712514771451494,
+      "separation_margin": 0.35527112720291565,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_05",
+      "auc": 0.9583333333333333,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.43099074839123025,
+      "generated_max_prob": 0.7072985833388483,
+      "separation_margin": -0.27630783494761807,
+      "real_above_0_5": 1,
+      "generated_above_0_5": 1
+    },
+    {
+      "set": "pseudo_final_06",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.43099074839123025,
+      "generated_max_prob": 0.31388050174790055,
+      "separation_margin": 0.1171102466433297,
+      "real_above_0_5": 1,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_07",
+      "auc": 0.9583333333333334,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.42164332419316636,
+      "generated_max_prob": 0.4916428769537787,
+      "separation_margin": -0.06999955276061232,
+      "real_above_0_5": 1,
+      "generated_above_0_5": 0
+    }
+  ]
+}

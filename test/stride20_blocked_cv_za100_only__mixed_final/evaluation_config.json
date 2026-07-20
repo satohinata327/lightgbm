@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za100_only/model",
+  "target": "mixed_final_masked.csv",
+  "output": "test/stride20_blocked_cv_za100_only__mixed_final",
+  "selection_note": "mixed_finalは学習、early stopping、モデル選択に使用していない。"
+}

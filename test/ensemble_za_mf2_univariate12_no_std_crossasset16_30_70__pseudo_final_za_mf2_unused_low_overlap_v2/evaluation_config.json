@@ -1,0 +1,10 @@
+{
+  "ensemble_config": "train/ensemble_za_mf2_univariate12_no_std_crossasset16_30_70/config.json",
+  "evaluation_data": "data/evaluation_sets/pseudo_final_za_mf2_unused_low_overlap_v2",
+  "weights": {
+    "univariate12_no_std": 0.3,
+    "crossasset16": 0.7
+  },
+  "threshold": 0.5,
+  "selection_note": "重みはユーザー指定であり、mixed_finalの結果を使って選択していない。"
+}

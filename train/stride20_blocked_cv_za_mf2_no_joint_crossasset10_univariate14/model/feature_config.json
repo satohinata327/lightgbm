@@ -1,0 +1,33 @@
+{
+  "feature_columns": [
+    "corr_sp_rate_given_sp_down_q10",
+    "corr_sp_rate_given_sp_up_q90",
+    "corr_asymmetry_sp_down_vs_up",
+    "corr_rolling_vol20_sp_rate",
+    "joint_high_vol20_q90",
+    "sp_lead_rate_corr_1",
+    "sp_lead_rate_next5_sum_corr",
+    "rate_lead_sp_next5_sum_corr",
+    "sp_vol_lead_rate_vol_corr_1",
+    "rate_vol_lead_sp_vol_corr_1",
+    "sp_mean",
+    "sp_std",
+    "sp_skew",
+    "sp_kurt",
+    "sp_abs_acf1",
+    "sp_abs_future_vol_corr_5",
+    "sp_leverage_corr_1",
+    "sp_leverage_corr_5",
+    "rate_mean",
+    "rate_std",
+    "rate_skew",
+    "rate_kurt",
+    "rate_abs_acf1",
+    "rate_abs_future_vol_corr_5"
+  ],
+  "rolling_corr_window": null,
+  "rolling_corr_statistics": null,
+  "joint_feature_mode": "none",
+  "dependence_feature_mode": "none",
+  "feature_set_mode": "no_joint_cross_asset_10_plus_univariate_14"
+}

@@ -1,0 +1,19 @@
+{
+  "ensemble_name": "ensemble_za_mf2_univariate12_no_std_crossasset16_30_70",
+  "method": "probability_average",
+  "threshold": 0.5,
+  "models": [
+    {
+      "name": "univariate12_no_std",
+      "model_dir": "train/stride20_blocked_cv_za_mf2_univariate12_no_std/model",
+      "experiment_dir": "train/stride20_blocked_cv_za_mf2_univariate12_no_std",
+      "weight": 0.3
+    },
+    {
+      "name": "crossasset16",
+      "model_dir": "train/stride20_blocked_cv_za_mf2_crossasset16/model",
+      "experiment_dir": "train/stride20_blocked_cv_za_mf2_crossasset16",
+      "weight": 0.7
+    }
+  ]
+}

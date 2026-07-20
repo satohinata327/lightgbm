@@ -1,0 +1,162 @@
+{
+  "best_trial": 39,
+  "optuna_objective": "balanced_logloss_objective",
+  "objective_value": 1.0063343236567592,
+  "suggested_params": {
+    "max_depth": 4,
+    "num_leaves": 26,
+    "learning_rate": 0.05779292077118835,
+    "min_child_samples": 20,
+    "colsample_bytree": 1.0,
+    "subsample": 0.6,
+    "subsample_freq": 4,
+    "reg_alpha_is_zero": true,
+    "reg_lambda_is_zero": true,
+    "min_split_gain": 0.9549723099364156
+  },
+  "effective_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "n_estimators": 1000,
+    "verbosity": -1,
+    "learning_rate": 0.05779292077118835,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "colsample_bytree": 1.0,
+    "subsample": 0.6,
+    "subsample_freq": 4,
+    "reg_alpha": 0.0,
+    "reg_lambda": 0.0,
+    "min_split_gain": 0.9549723099364156
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train_blocks": [
+        0
+      ],
+      "validation_block": 1,
+      "best_iteration": 9,
+      "metrics": {
+        "auc": 0.4975,
+        "accuracy": 0.6982456140350877,
+        "balanced_accuracy": 0.4975,
+        "logloss": 0.6124620195186969,
+        "n": 285,
+        "tp": 0,
+        "fn": 85,
+        "tn": 199,
+        "fp": 1,
+        "real_recall": 0.0,
+        "generated_specificity": 0.995,
+        "real_logloss": 1.2234815797090546,
+        "generated_logloss": 0.35277870643779496,
+        "balanced_logloss": 0.7881301430734248
+      }
+    },
+    {
+      "fold": 2,
+      "train_blocks": [
+        0,
+        1
+      ],
+      "validation_block": 2,
+      "best_iteration": 32,
+      "metrics": {
+        "auc": 0.8595882352941177,
+        "accuracy": 0.9087719298245615,
+        "balanced_accuracy": 0.8538235294117646,
+        "logloss": 0.33609614671172877,
+        "n": 285,
+        "tp": 61,
+        "fn": 24,
+        "tn": 198,
+        "fp": 2,
+        "real_recall": 0.7176470588235294,
+        "generated_specificity": 0.99,
+        "real_logloss": 0.9045980294763296,
+        "generated_logloss": 0.09448284653677357,
+        "balanced_logloss": 0.49954043800655157
+      }
+    },
+    {
+      "fold": 3,
+      "train_blocks": [
+        0,
+        1,
+        2
+      ],
+      "validation_block": 3,
+      "best_iteration": 14,
+      "metrics": {
+        "auc": 0.9739117647058824,
+        "accuracy": 0.7578947368421053,
+        "balanced_accuracy": 0.6076470588235294,
+        "logloss": 0.44348892679787616,
+        "n": 285,
+        "tp": 20,
+        "fn": 65,
+        "tn": 196,
+        "fp": 4,
+        "real_recall": 0.23529411764705882,
+        "generated_specificity": 0.98,
+        "real_logloss": 0.8109610954319219,
+        "generated_logloss": 0.2873132551284069,
+        "balanced_logloss": 0.5491371752801644
+      }
+    }
+  ],
+  "cv": {
+    "robust_auc": 0.7148220020604703,
+    "auc_mean": 0.777,
+    "auc_std": 0.248711991758119,
+    "auc_min": 0.4975,
+    "real_recall_mean": 0.3176470588235294,
+    "balanced_accuracy_mean": 0.6529901960784313,
+    "logloss_mean": 0.4640156976761006,
+    "balanced_logloss_mean": 0.6122692521200469,
+    "balanced_logloss_worst": 0.7881301430734248,
+    "balanced_logloss_objective": 1.0063343236567592
+  },
+  "best_iterations": [
+    9,
+    32,
+    14
+  ],
+  "final_n_estimators": 14,
+  "final_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "n_estimators": 14,
+    "verbosity": -1,
+    "learning_rate": 0.05779292077118835,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "colsample_bytree": 1.0,
+    "subsample": 0.6,
+    "subsample_freq": 4,
+    "reg_alpha": 0.0,
+    "reg_lambda": 0.0,
+    "min_split_gain": 0.9549723099364156
+  },
+  "final_test_metrics": {
+    "auc": 0.9251176470588236,
+    "accuracy": 0.9192982456140351,
+    "balanced_accuracy": 0.9188235294117647,
+    "logloss": 0.37065022693341526,
+    "n": 285,
+    "tp": 78,
+    "fn": 7,
+    "tn": 184,
+    "fp": 16,
+    "real_recall": 0.9176470588235294,
+    "generated_specificity": 0.92,
+    "real_logloss": 0.4572240964566075,
+    "generated_logloss": 0.3338563323860585,
+    "balanced_logloss": 0.395540214421333
+  }
+}

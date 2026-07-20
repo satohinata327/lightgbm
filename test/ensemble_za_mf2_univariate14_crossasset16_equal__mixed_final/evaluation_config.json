@@ -1,0 +1,10 @@
+{
+  "ensemble_config": "train/ensemble_za_mf2_univariate14_crossasset16_equal/config.json",
+  "evaluation_data": "data/evaluation_sets/final/mixed_final_masked.csv",
+  "weights": {
+    "univariate14": 0.5,
+    "crossasset16": 0.5
+  },
+  "threshold": 0.5,
+  "selection_note": "mixed_finalは重み選択、学習、early stoppingに使用していない。"
+}

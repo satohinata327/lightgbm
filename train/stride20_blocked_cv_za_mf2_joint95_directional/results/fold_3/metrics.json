@@ -1,0 +1,27 @@
+{
+  "fold": 3,
+  "train_blocks": [
+    0,
+    1,
+    2
+  ],
+  "validation_block": 3,
+  "train_real": 255,
+  "train_generated": 600,
+  "validation_real": 85,
+  "validation_generated": 200,
+  "best_iteration": 36,
+  "metrics": {
+    "auc": 0.9257058823529413,
+    "accuracy": 0.775438596491228,
+    "balanced_accuracy": 0.6472058823529412,
+    "logloss": 0.4989027200846019,
+    "n": 285,
+    "tp": 28,
+    "fn": 57,
+    "tn": 193,
+    "fp": 7,
+    "real_recall": 0.32941176470588235,
+    "generated_specificity": 0.965
+  }
+}

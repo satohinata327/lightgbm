@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_optuna_v1/model",
+  "input": "../mixed_final_masked.csv",
+  "output": "test/stride20_blocked_cv_za_mf2_optuna_v1__mixed_final",
+  "note": "Optuna探索とモデル選択の完了後に一度だけmixed_finalを評価"
+}

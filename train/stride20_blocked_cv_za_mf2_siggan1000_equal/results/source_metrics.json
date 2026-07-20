@@ -1,0 +1,22 @@
+{
+  "real": {
+    "n": 85,
+    "recall": 0.7411764705882353,
+    "mean_prob_real": 0.5655190018270588
+  },
+  "za_final7": {
+    "n": 100,
+    "specificity": 0.91,
+    "mean_prob_real": 0.29834234912700003
+  },
+  "mf2_garch_regime_corr": {
+    "n": 100,
+    "specificity": 0.99,
+    "mean_prob_real": 0.258792316059
+  },
+  "siggan": {
+    "n": 100,
+    "specificity": 1.0,
+    "mean_prob_real": 0.211123459031
+  }
+}

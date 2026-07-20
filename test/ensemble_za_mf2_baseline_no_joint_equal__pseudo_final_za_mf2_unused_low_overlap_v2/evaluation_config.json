@@ -1,0 +1,8 @@
+{
+  "ensemble": "train/ensemble_za_mf2_baseline_no_joint_equal/config.json",
+  "target": "data/evaluation_sets/pseudo_final_za_mf2_unused_low_overlap_v2",
+  "output": "test/ensemble_za_mf2_baseline_no_joint_equal__pseudo_final_za_mf2_unused_low_overlap_v2",
+  "n_sets": 7,
+  "maximum_adjacent_real_window_overlap_fraction": 0.8976190476190476,
+  "excluded_previous_pseudo_generated_paths": true
+}

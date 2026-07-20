@@ -1,0 +1,20 @@
+{
+  "feature_columns": [
+    "corr_sp_rate_given_sp_down_q10",
+    "corr_sp_rate_given_sp_up_q90",
+    "corr_asymmetry_sp_down_vs_up",
+    "corr_rolling_vol20_sp_rate",
+    "joint_high_vol20_q90",
+    "sp_lead_rate_corr_1",
+    "sp_lead_rate_next5_sum_corr",
+    "rate_lead_sp_next5_sum_corr",
+    "sp_vol_lead_rate_vol_corr_1",
+    "rate_vol_lead_sp_vol_corr_1",
+    "joint_large_move_rank95_smooth_tau02"
+  ],
+  "rolling_corr_window": null,
+  "rolling_corr_statistics": null,
+  "joint_feature_mode": "smooth_rank_95_tau02",
+  "dependence_feature_mode": "none",
+  "feature_set_mode": "cross_asset_11_smooth_joint_no_rolling_corr60"
+}

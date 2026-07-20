@@ -1,0 +1,19 @@
+{
+  "ensemble_name": "ensemble_za_mf2_univariate14_crossasset16_equal",
+  "method": "probability_average",
+  "threshold": 0.5,
+  "models": [
+    {
+      "name": "univariate14",
+      "model_dir": "train/stride20_blocked_cv_za_mf2_univariate14/model",
+      "experiment_dir": "train/stride20_blocked_cv_za_mf2_univariate14",
+      "weight": 0.5
+    },
+    {
+      "name": "crossasset16",
+      "model_dir": "train/stride20_blocked_cv_za_mf2_crossasset16/model",
+      "experiment_dir": "train/stride20_blocked_cv_za_mf2_crossasset16",
+      "weight": 0.5
+    }
+  ]
+}

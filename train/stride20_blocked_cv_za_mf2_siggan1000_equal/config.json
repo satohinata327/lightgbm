@@ -1,0 +1,57 @@
+{
+  "experiment_name": "stride20_blocked_cv_za_mf2_siggan1000_equal",
+  "experiment_dir": "train/stride20_blocked_cv_za_mf2_siggan1000_equal",
+  "train_csv": "../train_data/train_sp500_us10y.csv",
+  "data_name": "za_final7_plus_mf2_plus_siggan1000_equal",
+  "window_length": 1260,
+  "stride": 20,
+  "feature_count": 26,
+  "negative_sources": [
+    "za_final7",
+    "mf2_garch_regime_corr",
+    "siggan"
+  ],
+  "generated_sampling_seed": 42,
+  "generated_sources": [
+    {
+      "name": "za_final7",
+      "wide_csv": "../za_final7_1000paths_wide.csv",
+      "samples_per_block": 100
+    },
+    {
+      "name": "mf2_garch_regime_corr",
+      "wide_csv": "../garch_origin/models/mf2_garch_regime_corr/runs/run_001/generated_1000_wide/mf2_garch_regime_corr_1000x1260_wide.csv",
+      "samples_per_block": 100
+    },
+    {
+      "name": "siggan",
+      "wide_csv": "../synthetic_returns_siggan_1000paths_wide1.csv",
+      "samples_per_block": 100
+    }
+  ],
+  "blocked_cv": {
+    "n_blocks": 5,
+    "validation_blocks": [1, 2, 3],
+    "final_test_block": 4
+  },
+  "lightgbm_params": {
+    "objective": "binary",
+    "random_state": 42,
+    "class_weight": "balanced",
+    "learning_rate": 0.03,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "min_child_samples": 20,
+    "n_estimators": 1000,
+    "colsample_bytree": 0.8,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "reg_alpha": 0.0,
+    "reg_lambda": 0.0,
+    "min_split_gain": 0.0
+  },
+  "early_stopping": {
+    "eval_metric": "binary_logloss",
+    "stopping_rounds": 50
+  }
+}

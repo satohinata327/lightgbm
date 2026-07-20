@@ -1,0 +1,90 @@
+{
+  "model_dir": "train/stride20_blocked_cv_za_mf2_crossasset10_no_joint_no_rolling_corr60/model",
+  "n_sets": 7,
+  "mean_auc": 0.9821428571428571,
+  "perfect_top2_sets": 4,
+  "all_real_in_top4_sets": 7,
+  "positive_margin_sets": 4,
+  "mean_margin": 0.03848250046428745,
+  "all_real_above_0_5_sets": 7,
+  "no_generated_above_0_5_sets": 3,
+  "sets": [
+    {
+      "set": "pseudo_final_01",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.5871090242061766,
+      "generated_max_prob": 0.4554202079827337,
+      "separation_margin": 0.13168881622344292,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_02",
+      "auc": 0.9583333333333334,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.5607943826089135,
+      "generated_max_prob": 0.590568147850023,
+      "separation_margin": -0.02977376524110953,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 2
+    },
+    {
+      "set": "pseudo_final_03",
+      "auc": 0.9583333333333334,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.515211267210979,
+      "generated_max_prob": 0.60585315015478,
+      "separation_margin": -0.09064188294380104,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 2
+    },
+    {
+      "set": "pseudo_final_04",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.5681403952016101,
+      "generated_max_prob": 0.47942046635767593,
+      "separation_margin": 0.08871992884393415,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_05",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.6637481695489728,
+      "generated_max_prob": 0.6007586293768415,
+      "separation_margin": 0.06298954017213121,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 3
+    },
+    {
+      "set": "pseudo_final_06",
+      "auc": 1.0,
+      "top2_real_count": 2,
+      "top4_real_count": 2,
+      "real_min_prob": 0.6637481695489728,
+      "generated_max_prob": 0.4799477630342995,
+      "separation_margin": 0.18380040651467328,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_07",
+      "auc": 0.9583333333333334,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.563759898091999,
+      "generated_max_prob": 0.6411654384112578,
+      "separation_margin": -0.07740554031925884,
+      "real_above_0_5": 2,
+      "generated_above_0_5": 2
+    }
+  ]
+}

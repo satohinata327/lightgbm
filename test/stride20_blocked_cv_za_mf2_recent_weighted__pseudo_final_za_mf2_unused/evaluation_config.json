@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_recent_weighted/model",
+  "target": "data/evaluation_sets/pseudo_final_za_mf2_unused",
+  "output": "test/stride20_blocked_cv_za_mf2_recent_weighted__pseudo_final_za_mf2_unused",
+  "n_sets": 10
+}

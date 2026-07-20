@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_univariate14/model",
+  "target": "mixed_final_masked.csv",
+  "output": "test/stride20_blocked_cv_za_mf2_univariate14__mixed_final",
+  "selection_note": "The mixed-final target was not used for training, early stopping, or model selection."
+}

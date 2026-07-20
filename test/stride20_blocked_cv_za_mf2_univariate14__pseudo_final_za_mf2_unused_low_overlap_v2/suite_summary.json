@@ -1,0 +1,90 @@
+{
+  "model_dir": "train/stride20_blocked_cv_za_mf2_univariate14/model",
+  "n_sets": 7,
+  "mean_auc": 0.8333333333333334,
+  "perfect_top2_sets": 0,
+  "all_real_in_top4_sets": 3,
+  "positive_margin_sets": 0,
+  "mean_margin": -0.1461269376775322,
+  "all_real_above_0_5_sets": 0,
+  "no_generated_above_0_5_sets": 3,
+  "sets": [
+    {
+      "set": "pseudo_final_01",
+      "auc": 0.75,
+      "top2_real_count": 1,
+      "top4_real_count": 1,
+      "real_min_prob": 0.33406195947731526,
+      "generated_max_prob": 0.5914246649063737,
+      "separation_margin": -0.2573627054290584,
+      "real_above_0_5": 1,
+      "generated_above_0_5": 1
+    },
+    {
+      "set": "pseudo_final_02",
+      "auc": 0.9166666666666667,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.37213522686059636,
+      "generated_max_prob": 0.4358059946647468,
+      "separation_margin": -0.06367076780415043,
+      "real_above_0_5": 0,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_03",
+      "auc": 0.875,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.38946288507742977,
+      "generated_max_prob": 0.548854176371288,
+      "separation_margin": -0.1593912912938582,
+      "real_above_0_5": 0,
+      "generated_above_0_5": 1
+    },
+    {
+      "set": "pseudo_final_04",
+      "auc": 0.8333333333333334,
+      "top2_real_count": 1,
+      "top4_real_count": 1,
+      "real_min_prob": 0.36931562823938474,
+      "generated_max_prob": 0.5146741093017857,
+      "separation_margin": -0.14535848106240096,
+      "real_above_0_5": 1,
+      "generated_above_0_5": 1
+    },
+    {
+      "set": "pseudo_final_05",
+      "auc": 0.75,
+      "top2_real_count": 1,
+      "top4_real_count": 1,
+      "real_min_prob": 0.38021237043032463,
+      "generated_max_prob": 0.4990837651308409,
+      "separation_margin": -0.11887139470051628,
+      "real_above_0_5": 0,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_06",
+      "auc": 0.7916666666666666,
+      "top2_real_count": 1,
+      "top4_real_count": 1,
+      "real_min_prob": 0.38191369725468893,
+      "generated_max_prob": 0.4852113052363483,
+      "separation_margin": -0.10329760798165938,
+      "real_above_0_5": 0,
+      "generated_above_0_5": 0
+    },
+    {
+      "set": "pseudo_final_07",
+      "auc": 0.9166666666666667,
+      "top2_real_count": 1,
+      "top4_real_count": 2,
+      "real_min_prob": 0.3877962940227258,
+      "generated_max_prob": 0.5627326094938077,
+      "separation_margin": -0.17493631547108185,
+      "real_above_0_5": 0,
+      "generated_above_0_5": 1
+    }
+  ]
+}

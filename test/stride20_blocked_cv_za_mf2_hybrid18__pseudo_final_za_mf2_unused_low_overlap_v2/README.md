@@ -1,0 +1,5 @@
+# hybrid18による低重複pseudo final評価
+
+平均AUCは0.9702、実データ2件が上位2位を占めたセットは5、上位4位以内に両方入ったセットは6、正の分離marginは5セットだった。pseudo_final_05のhard negativeは解消せず、pseudo_final_07でも生成データ1件が実データ1件より上位になった。
+
+このpseudo suiteと未使用B5は特徴量候補の選定基準に使用した。mixed finalは使用していない。

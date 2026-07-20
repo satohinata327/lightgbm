@@ -1,0 +1,6 @@
+{
+  "model": "train/stride20_blocked_cv_za_mf2_optuna_v2_balanced_logloss/model",
+  "input": "../mixed_final_masked.csv",
+  "output": "test/stride20_blocked_cv_za_mf2_optuna_v2_balanced_logloss__mixed_final",
+  "note": "Balanced-logloss Optuna探索完了後に一度だけmixed_finalを評価"
+}
