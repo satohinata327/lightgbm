@@ -1,0 +1,17 @@
+{
+  "ensemble_name": "ensemble_baseline_no_joint_v1",
+  "method": "probability_average",
+  "threshold": 0.5,
+  "models": [
+    {
+      "name": "joint",
+      "model_dir": "final_model/ensemble_baseline_no_joint_v1/models/joint",
+      "weight": 0.5
+    },
+    {
+      "name": "no_joint",
+      "model_dir": "final_model/ensemble_baseline_no_joint_v1/models/no_joint",
+      "weight": 0.5
+    }
+  ]
+}

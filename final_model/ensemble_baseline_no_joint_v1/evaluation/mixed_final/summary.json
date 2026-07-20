@@ -1,0 +1,114 @@
+[
+  {
+    "mask": "mask3",
+    "n_rows": 1260,
+    "prob_baseline": 0.824498388433711,
+    "prob_no_joint": 0.7252364778488769,
+    "prob_real": 0.7748674331412939,
+    "pred_label": 1
+  },
+  {
+    "mask": "mask6",
+    "n_rows": 1260,
+    "prob_baseline": 0.8050062559193706,
+    "prob_no_joint": 0.738244241351595,
+    "prob_real": 0.7716252486354829,
+    "pred_label": 1
+  },
+  {
+    "mask": "mask7",
+    "n_rows": 1260,
+    "prob_baseline": 0.746780866522953,
+    "prob_no_joint": 0.5638262848375455,
+    "prob_real": 0.6553035756802492,
+    "pred_label": 1
+  },
+  {
+    "mask": "mask4",
+    "n_rows": 1260,
+    "prob_baseline": 0.6894750241239712,
+    "prob_no_joint": 0.5255374321458467,
+    "prob_real": 0.607506228134909,
+    "pred_label": 1
+  },
+  {
+    "mask": "mask10",
+    "n_rows": 1260,
+    "prob_baseline": 0.23169526697562592,
+    "prob_no_joint": 0.5435402947274458,
+    "prob_real": 0.38761778085153586,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask1",
+    "n_rows": 1260,
+    "prob_baseline": 0.4383716239717392,
+    "prob_no_joint": 0.31012390168976284,
+    "prob_real": 0.374247762830751,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask12",
+    "n_rows": 1260,
+    "prob_baseline": 0.27878843384109253,
+    "prob_no_joint": 0.4478746272754184,
+    "prob_real": 0.36333153055825546,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask14",
+    "n_rows": 1260,
+    "prob_baseline": 0.24275823695463614,
+    "prob_no_joint": 0.42231595443713216,
+    "prob_real": 0.33253709569588413,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask9",
+    "n_rows": 1260,
+    "prob_baseline": 0.28682185463678095,
+    "prob_no_joint": 0.2920138909042046,
+    "prob_real": 0.2894178727704928,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask2",
+    "n_rows": 1260,
+    "prob_baseline": 0.22528803069909814,
+    "prob_no_joint": 0.3345821138833016,
+    "prob_real": 0.27993507229119985,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask11",
+    "n_rows": 1260,
+    "prob_baseline": 0.16644673372983432,
+    "prob_no_joint": 0.29587295642703215,
+    "prob_real": 0.23115984507843323,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask8",
+    "n_rows": 1260,
+    "prob_baseline": 0.1742172509092617,
+    "prob_no_joint": 0.26912577751005523,
+    "prob_real": 0.22167151420965847,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask5",
+    "n_rows": 1260,
+    "prob_baseline": 0.16644673372983432,
+    "prob_no_joint": 0.2746171946839807,
+    "prob_real": 0.22053196420690752,
+    "pred_label": 0
+  },
+  {
+    "mask": "mask13",
+    "n_rows": 1260,
+    "prob_baseline": 0.17102237743852847,
+    "prob_no_joint": 0.262681136253005,
+    "prob_real": 0.21685175684576674,
+    "pred_label": 0
+  }
+]
